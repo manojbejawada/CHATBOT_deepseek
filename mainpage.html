@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT BOT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        }
+        .chatbot-avatar {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .message-bubble {
+            border-radius: 20px 20px 20px 0;
+        }
+        .user-bubble {
+            border-radius: 20px 20px 0 20px;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #6b7280;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-200 min-h-screen font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-comment-dots text-2xl"></i>
+                    <h1 class="text-2xl font-bold">CHAT BOT</h1>
+                </div>
+                <!-- Removed Home and Contact links as requested -->
+                <!-- <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-gray-200 transition">Home</a>
+                    <a href="#" class="hover:text-gray-200 transition">Contact</a>
+                </nav> -->
+                <button class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 md:py-12">
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+            <!-- Left Column - Welcome Message -->
+            <div class="lg:w-1/2 space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
+                    Your Personal <span class="text-gray-700">AI Assistant</span>
+                </h2>
+                <p class="text-xl text-gray-700">
+                    Meet your 24/7 virtual companion ready to help with questions, tasks, and conversations.
+                </p>
+                
+                <!-- Welcome Message Bubble -->
+                <div class="bg-white p-6 rounded-xl shadow-md mt-8 relative">
+                    <div class="absolute -top-4 -left-4 w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+                        <i class="fas fa-robot text-white"></i>
+                    </div>
+                    <div class="pl-6">
+                        <div class="message-bubble bg-gray-100 p-4 inline-block max-w-xs">
+                            <p>Hello there! 👋 I'm your AI assistant. How can I help you today?</p>
+                            <div class="typing-indicator mt-2">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap gap-4 mt-8">
+<a href="chatbot.html" class="gradient-bg text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition shadow-md inline-block text-center no-underline" id="startChattingBtn">
+                        Start Chatting Now
+                </a>
+                </div>
+            </div>
+            
+            <!-- Right Column - Chatbot Illustration -->
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="relative max-w-md">
+                    <div class="chatbot-avatar bg-white p-6 rounded-full shadow-xl w-48 h-48 flex items-center justify-center mx-auto">
+                        <i class="fas fa-robot text-6xl text-gray-700"></i>
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-gray-100 rounded-full opacity-50"></div>
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gray-200 rounded-full opacity-50"></div>
+                    
+                    <!-- Sample conversation bubbles -->
+                    <div class="mt-12 space-y-4">
+                        <div class="flex justify-end">
+                            <div class="user-bubble bg-gray-800 text-white p-4 max-w-xs">
+                                <p>What can you help me with?</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-start">
+                            <div class="message-bubble bg-gray-100 p-4 max-w-xs">
+                                <p>I can answer questions, provide recommendations, help with scheduling, and much more!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+<!-- Bottom bar with Contact Us in the middle -->
+<footer class="fixed bottom-0 left-0 w-full bg-gray-800 text-white py-3 flex justify-center items-center shadow-lg">
+    <a href="mailto:manojbejawada143@gmail.com" class="text-white font-semibold hover:underline flex items-center gap-2">
+        <i class="fas fa-envelope"></i> Contact Us
+    </a>
+</footer>
+
+<script>
+    // Simple animation for the chatbot avatar on hover
+    const chatbotAvatar = document.querySelector('.chatbot-avatar');
+    if (chatbotAvatar) {
+        chatbotAvatar.addEventListener('mouseenter', () => {
+            chatbotAvatar.classList.add('animate-bounce');
+        });
+        chatbotAvatar.addEventListener('mouseleave', () => {
+            chatbotAvatar.classList.remove('animate-bounce');
+        });
+    }
+
+    // Simulate typing animation
+    const typingIndicator = document.querySelector('.typing-indicator');
+    if (typingIndicator) {
+        setTimeout(() => {
+            typingIndicator.style.display = 'none';
+            const response = document.createElement('p');
+            response.textContent = "I'm here to make your life easier. Ask me anything!";
+            typingIndicator.parentNode.appendChild(response);
+        }, 3000);
+    }
+</script>
+</body>
+</html>
