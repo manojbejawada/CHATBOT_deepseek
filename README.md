@@ -13,7 +13,7 @@ The chatbot is built using the DeepSeek API, which allows it to generate intelli
 * *HTML & CSS:* Used to design a clean, responsive, and user-friendly chat interface.
 * *MongoDB:* Stores chat history and user interactions, which can be useful for analytics or improving the system over time.
 
-*Key Features:*
+Key Features:
 
 * Real-time conversational experience
 * Clean and intuitive user interface
