@@ -1,5 +1,5 @@
 
-*Title: AI Chatbot using DeepSeek API*
+*Title: AI Chatbot using DeepSeek API**
 
 *Introduction:*
  I'm excited to present my chatbot project—a smart conversational agent designed to interact with users in a human-like manner. It leverages modern AI capabilities to provide responses that are both relevant and context-aware.
